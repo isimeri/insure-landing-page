@@ -5,8 +5,10 @@
 }
 body{
     font-family: "Karla", sans-serif;
+    background-color: rgba(0,0,0,0.1);
 }
 .supreme-container{
+    background-color: white;
     min-height: 100vh;
     height: auto;
     position: relative;
@@ -28,7 +30,7 @@ nav{
 .inner-nav-container{
     width: 30%;
     min-width: 415px;
-    background-color: rgba(0,0,0,0.1);
+    /*background-color: rgba(0,0,0,0.1);*/
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -61,6 +63,9 @@ nav{
 .mobile-family-bg{
     display: none;
 }
+.bg-right-mobile{
+    display: none;
+}
 .upper-section{
     background-color: hsl(256, 26%, 20%);
     position: relative;
@@ -72,7 +77,7 @@ nav{
     width: 40%;
     color: white;
     margin: 15vh 0 0 10vw;
-    background-color: rgba(0,0,0,0.1);
+    /*background-color: rgba(0,0,0,0.1);*/
     min-height: 360px;
     min-width: 540px;
 }
@@ -82,7 +87,7 @@ nav{
     font-weight: 400;
 }
 .upper-section-header{
-    background-color: rgba(0,0,0,0.1);
+    /*background-color: rgba(0,0,0,0.1);*/
     width: 65%;
     min-width: 444px;
     margin-bottom: 2vh;
@@ -148,7 +153,7 @@ nav{
 }
 .middle-card{
     width: 25%;
-    background-color: rgba(0,0,0,0.1);
+    /*background-color: rgba(0,0,0,0.1);*/
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -179,7 +184,7 @@ nav{
     background-position: right;
 }
 .banner-header{
-    background-color: rgba(0,0,0,0.1);
+    /*background-color: rgba(0,0,0,0.1);*/
     color: white;
     width: 42%;
     min-width: 580px;
@@ -204,7 +209,7 @@ footer{
     padding-top: max(2vh, 15px);
 }
 .social-container{
-    background-color: rgba(0,0,0,0.1);
+    /*background-color: rgba(0,0,0,0.1);*/
     width: 10%;
     min-width: 140px;
     display: flex;
@@ -240,7 +245,7 @@ footer{
 .lower-footer{
     display: flex;
     justify-content: space-between;
-    background-color: rgba(0,0,0,0.1);
+    /*background-color: rgba(0,0,0,0.1);*/
     min-height: 25vh;
     margin-top: max(2vh, 15px);
 }
@@ -310,7 +315,11 @@ footer{
     .nav-menu-mobile{
         width: 100%;
         background-color: hsl(270, 9%, 17%);
-        display: none;      /* use display flex to show the mobile nav*/
+        background-image: url("./images/bg-pattern-mobile-nav.svg");
+        background-repeat: no-repeat;
+        background-position: bottom;
+        background-size: contain;
+        display: flex;      /* use display flex to show the mobile nav*/
         flex-direction: column;
         align-items: center;
         justify-content: flex-start;
@@ -319,6 +328,15 @@ footer{
         padding-top: 2vh;
         min-height: 50vh;
         z-index: 3;
+        transition: all 0.3s ease-in-out;
+        transform: translateY(-10px);
+        opacity: 0;
+        pointer-events: none;
+    }
+    .nav-menu-mobile.show{
+        transform: translateY(0px);
+        opacity: 1;
+        pointer-events: all;
     }
     .nav-menu-mobile > a{
         color: white;
@@ -336,6 +354,9 @@ footer{
         background-repeat: no-repeat;
         background-position: 0% 40%;
     }
+    .bg-right-mobile{
+        display: block;
+    }
     .big-header{
         font-size: 3rem;
     }
@@ -347,6 +368,7 @@ footer{
         height: auto;
         min-height: 0;
         padding-bottom: max(2vh, 18px);
+        position: relative;
     }
     .upper-section-content{
         width: 100%;
@@ -371,7 +393,14 @@ footer{
         width: 133px;
         margin: 0 auto;
     }
+    .bg-right-mobile{
+        position: absolute;
+        right: 0;
+        top: -9rem;
+        pointer-events: none;
+    }
     .middle-section{
+        position: relative;
         padding-right: max(2vw, 20px);
         padding-left: max(2vw, 20px);
         padding-top: max(5vh, 45px);
@@ -418,6 +447,10 @@ footer{
         min-width: 0;
         text-align: center;
         margin-bottom: max(24px, 3vh);
+    }
+    footer{
+        background-image: url("./images/bg-pattern-footer-mobile.svg");
+        background-size: contain;
     }
     .upper-footer{
         flex-direction: column;
